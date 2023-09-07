@@ -5,7 +5,7 @@ import Home from "./components/Landingpage/Home";
 import Login from "./components/login/Login";
 import Signup from "./components/Signup/Signup";
 import Header from "./components/Landingpage/Header";
-import Footer from "./components/Landingpage/Footer";
+import Footer from "./components/Landingpage/Footer"; 
 import { ToastContainer } from 'react-toastify'
 import ManagerBoard from "./components/Manager/ManagerBoard";
 import GetSingleAliPetroliumData from "./components/Manager/AllPump/AliPetrolium/AliPetroliumCRUD/GetSingleAliPetroliumData";
@@ -106,6 +106,7 @@ import CheckNoorPetroliumRates from "./components/PetrolAndDeiselRate/NoorPetrol
 import UpdateNoorPetroliumRates from "./components/PetrolAndDeiselRate/NoorPetrolium/UpdateNoorPetroliumRates";
 import CheckSiaaFillingStationRates from "./components/PetrolAndDeiselRate/SiaaFillingStation/CheckSiaaFillingStationRates";
 import UpdateSiaaFillingStationRates from "./components/PetrolAndDeiselRate/SiaaFillingStation/UpdateSiaaFillingStationRates";
+import TodayData from "./components/Manager/AllPump/TodayData";
 function App() {
   return (
     <div>
@@ -250,6 +251,9 @@ function App() {
           <Route path='/users' element={<Users />} />
           <Route path='/add-worker' element={<AddWorkers />} />
           <Route path='/edit-worker/:id' element={<EditWorker />} />
+
+          {/* today-data */}
+          <Route path='/today-data' element={<TodayData />} />
 
           </Route>
         </Routes>

@@ -18,7 +18,7 @@ const pumpData = async() =>{
 
     useEffect(() => {
         pumpData()
-    }, [])
+    }, []) 
 
  const generatePDF= useReactToPrint({
     content: ()=> componentPDF.current,

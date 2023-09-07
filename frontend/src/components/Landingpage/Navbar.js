@@ -43,6 +43,7 @@ function Navbar() {
                       <li>
                         <button onClick={sesionExpire} style={{ background: "transparent", color: "white", border: "none", fontWeight: "bold", marginLeft: "5px" }} ><i class='fa me-2'></i>Logout</button>
                       </li>
+                      
                       <li>
                         <Link to="/admin-Dashboard">Manager</Link>
                       </li>

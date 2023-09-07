@@ -67,6 +67,11 @@ const AllPumpData = [
     name: "SIAA Filling Station", //
     path: "/siaa-filling-station"
   },
+  {
+    id: 14,
+    name: "Generate Today's Record", //
+    path: "/today-data"
+  },
 ]
 
 

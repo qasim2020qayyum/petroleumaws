@@ -1,60 +1,60 @@
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100% !important;
+    border-collapse: collapse !important;
   }
 .table-container{
-  box-shadow: 5px 5px 5px 1px #888888;
-  margin: 1rem;
+  box-shadow: 5px 5px 5px 1px #888888 !important;
+  margin: 1rem !important;
 }
   th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
+    padding: 12px !important;
+    border: 1px solid #ddd !important;
   }
 
   th {
-    background-color: #f2f2f2;
-    color: red;
+    background-color: #f2f2f2 !important;
+    color: red !important;
   }
 .headcss_closing{
   color: green !important;
 }
 .headcss{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: .5rem 2rem;
-  font-weight: 900;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  margin: .5rem 2rem !important;
+  font-weight: 900 !important;
 }
 .headcss_2{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 2rem;
-  font-weight: 500;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  margin: 0 2rem !important;
+  font-weight: 500 !important;
 
 }
 .headcss_name{
-  height: 5rem;
+  height: 5rem !important;
 }
 
   /* Responsive table styles */
   @media screen and (max-width: 600px) {
     table {
-      width: 100%;
+      width: 100% !important;
     }
 
     thead {
-      display: none; /* Hide table header on small screens */
+      display: none !important; /* Hide table header on small screens */
     }
 
     td:before {
-      content: attr(data-label);
-      font-weight: bold;
-      display: block;
-      margin-bottom: 5px;
+      content: attr(data-label) !important;
+      font-weight: bold !important;
+      display: block !important;
+      margin-bottom: 5px !important;
     }
 
     td {
-      display: block;
+      display: block !important;
     }
   }

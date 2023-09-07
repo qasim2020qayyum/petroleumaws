@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./GetSingleAliPetroliumData.css"
 import { useReactToPrint } from 'react-to-print';
 import logo from "../../../../../assets/petrolium1.png"
-const GetSingleAliPetroliumData = () => {
+const GetSingleAliPetroliumData = () => { 
 
     const componentPDF = useRef();
 

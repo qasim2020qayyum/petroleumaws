@@ -1,23 +1,23 @@
 
   .box-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-    height: 100vh;
+    display: flex !important;
+    justify-content: space-around !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    height: 60vh !important;
   }
   
   .box {
-    width: 20rem;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    background-color: #a83c27;
+    width: 20rem !important;
+    height: 70px !important; 
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 24px !important;
+    color: white !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer !important;
+    background-color: #a83c27 !important;
   }
   

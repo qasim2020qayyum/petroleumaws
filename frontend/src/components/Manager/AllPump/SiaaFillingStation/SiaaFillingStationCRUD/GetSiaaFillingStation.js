@@ -11,8 +11,6 @@ const userData = async() =>{
     setUData(res)
 }
 
-console.log(uData)
-
     useEffect(() => {
         userData()
     }, [])
