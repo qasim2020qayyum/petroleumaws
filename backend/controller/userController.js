@@ -19,7 +19,6 @@ const getUser = async(req, res)=>{
 //     res.send(result);  
 // }
 
-
 const postUser = async (req, res) => {
     const { name, email, phone, password } = req.body;
   
@@ -53,7 +52,6 @@ const postUser = async (req, res) => {
   };
 
 // login 
-
 const loginUser = async(req,res)=>{
     try{
         const LoginUser = await User.findOne({
@@ -74,7 +72,6 @@ const loginUser = async(req,res)=>{
         });
       }
 }
-
 
 // update
 const updateUser = async(req,resp)=>{

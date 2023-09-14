@@ -1,107 +1,107 @@
 import React, { useState } from 'react'
-import "./AllPump.css"
 import { Link } from 'react-router-dom'
-const AllPumpData = [
-  {
-    id: 1,
-    name: "Ali Petrolium", //
-    path: "/ali-petrolium"
-  },
-  {
-    id: 2,
-    name: "Awan Brother", //
-    path: "/awan-brother"
-  },
-  {
-    id: 3,
-    name: "Baba Fareed Filling Station", //
-    path: "/baba-fareed-filling-station"
-  },
-  {
-    id: 4,
-    name: "Bhatti Petrolium", //
-    path: "/bhatti-petrolium"
-  },
-  {
-    id: 5,
-    name: "GO 09", //
-    path: "/go-09"
-  },
-  {
-    id: 6,
-    name: "GO 45", //
-    path: "/go-45"
-  },
-  {
-    id: 7,
-    name: "ID Filling Station", //
-    path: "/id-filling-station"
-  },
-  {
-    id: 8,
-    name: "Jahangir Petrolium Service", //
-    path: "/jahangir-petrolium-service"
-  },
-  {
-    id: 9,
-    name: "Khalid & Sons PSO", //
-    path: "/khalid-&-sons-pso"
-  },
-  {
-    id: 10,
-    name: "Nadir Filling Station", //
-    path: "/nadir-filling-station"
-  },
-  {
-    id: 11,
-    name: "Noor Petrolium", //
-    path: "/noor-petrolium"
-  },
-  {
-    id: 12,
-    name: "AL Siddique Filling Station", //
-    path: "/al-siddique-filling-station"
-  },
-  {
-    id: 13,
-    name: "SIAA Filling Station", //
-    path: "/siaa-filling-station"
-  },
-  {
-    id: 14,
-    name: "Generate Today's Record", //
-    path: "/today-data"
-  },
-]
-
-
 const AllPump = () => {
-  const [inputValue, setInputValue] = useState("");
-  const filteredUsers = AllPumpData.filter((u) =>
-      u.name.toLowerCase().includes(inputValue.toLowerCase())
-    );
-    const handleInputChange = (e) => {
-      setInputValue(e.target.value);
-    };
   return (
     <>
-     <form style={{margin:"0 2rem ", fontWeight:"900"}}>
-          <input
-          style={{fontWeight:"500",}}
-            type="text"
-            className="form-control w-25 mb-3 rounded-pill search_fieldd"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Search Pump by Name..."
-            value={inputValue}
-            onChange={handleInputChange}
-          />
-        </form>
+      {/* start  */}
+      <div className="d-flex justify-content-around flex-wrap align-items-center ">
+        <Link to="/awan-brother"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Awan Brother
+        </div></Link>
 
-      <div class="box-container">
+        <Link to="/siaa-filling-station"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          SIAA Filling Station
+        </div></Link>
 
-        {filteredUsers.map((item) => (<Link to={item.path}><div key={item.id} class="box">{item.name}</div></Link>))}
+        <Link to="/ali-petrolium"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Ali Petrolium
+        </div></Link>
+
+
+        <Link to="/bhatti-petrolium"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Bhatti Petrolium
+        </div></Link>
       </div>
+      {/* end  */}
+      <hr/>
+
+      {/* start  */}
+      <div className="d-flex justify-content-around flex-wrap align-items-center ">
+        <Link to="/go-09"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          GO 09
+        </div></Link>
+
+        <Link to="/go-45"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          GO 45
+        </div></Link>
+
+        <Link to="/nadir-filling-station"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Nadir Filling Station
+        </div></Link>
+
+        <Link to="/jahangir-petrolium-service"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Jahangir Petrolium Service
+        </div></Link>
+
+        <Link to="/al-wali-power-station"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Al Wali Power Station
+        </div></Link>
+      </div>
+      {/* end  */}
+
+      <hr/>
+      {/* start  */}
+      <div className="d-flex justify-content-around flex-wrap align-items-center ">
+        <Link to="/baba-fareed-filling-station"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Baba Fareed Filling Station
+        </div></Link>
+
+        <Link to="/al-siddique-filling-station"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          AL Siddique Filling Station
+        </div></Link>
+
+        <Link to="/noor-petrolium"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Noor Petrolium
+        </div></Link>
+
+        <Link to="/khalid-&-sons-pso"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          Khalid & Sons PSO
+        </div></Link>
+
+        <Link to="/id-filling-station"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-auto m-4 p-3 ">
+          ID Filling Station
+        </div></Link>
+      </div>
+      {/* end  */}
+      <hr/> 
     </>
   )
 }

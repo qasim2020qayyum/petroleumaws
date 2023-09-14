@@ -47,8 +47,6 @@ const postWorker = async (req, res) => {
     }
   };
 
-
-
 // update
 const updateWorker = async(req,res)=>{
     const workerId = req.params.id;

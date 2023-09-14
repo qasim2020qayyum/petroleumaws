@@ -404,7 +404,10 @@ exports.updateNadirFillingStationData = async (req, res) => {
     pumpData.netProfit = pumpData.totalProfit - pumpData.totalExpense;
 
     // closing 
-    pumpData.closing = (pumpData.totalSaleAmount + pumpData.totalRecieving) - (pumpData.totalExpense + pumpData.totalPayment)
+    // pumpData.closing = (pumpData.totalSaleAmount + pumpData.totalRecieving) - (pumpData.totalExpense + pumpData.totalPayment)
+    // closing 
+    let closingtotal =(pumpData.totalSaleAmount + pumpData.totalRecieving) - (pumpData.totalExpense + pumpData.totalPayment)
+    pumpData.closing = Math.floor(closingtotal)
     // Save the updated pump data
     const updatedPumpData = await pumpData.save();
 

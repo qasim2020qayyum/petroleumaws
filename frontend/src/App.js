@@ -107,6 +107,12 @@ import UpdateNoorPetroliumRates from "./components/PetrolAndDeiselRate/NoorPetro
 import CheckSiaaFillingStationRates from "./components/PetrolAndDeiselRate/SiaaFillingStation/CheckSiaaFillingStationRates";
 import UpdateSiaaFillingStationRates from "./components/PetrolAndDeiselRate/SiaaFillingStation/UpdateSiaaFillingStationRates";
 import TodayData from "./components/Manager/AllPump/TodayData";
+import CheckAlWaliRates from "./components/PetrolAndDeiselRate/AlWaliRates/CheckAlWaliRates";
+import UpdateAlWaliRates from "./components/PetrolAndDeiselRate/AlWaliRates/UpdateAlWaliRates";
+import CheckAddAlWali from "./components/Manager/AllPump/AlWali/AlWaliCRUD/CheckAddAlWali";
+import CheckAlWaliData from "./components/Manager/AllPump/AlWali/AlWaliCRUD/CheckAlWaliData";
+import GetSingleAlWaliData from "./components/Manager/AllPump/AlWali/AlWaliCRUD/GetSingleAlWaliData";
+import EditAlWali from "./components/Manager/AllPump/AlWali/AlWaliCRUD/EditAlWali";
 function App() {
   return (
     <div>
@@ -244,6 +250,15 @@ function App() {
           <Route path='/siaa-filling-station/get-all-data' element={<CheckSiaaFillingStationData />} />
           <Route path='/siaa-filling-station-details/:id' element={<GetSingleSiaaFillingStationData />} />
           <Route path='/edit-siaa-filling-station-data/:id' element={<EditSiaaFillingStation />} />
+
+          {/* Al Wali*/}
+          <Route path='/al-wali-power-station' element={<CheckAlWaliRates/>} />
+          <Route path='/edit-al-wali-power-station-rates/:id' element={<UpdateAlWaliRates />} />
+
+          <Route path='/al-wali-power-station/add-todays-data' element={<CheckAddAlWali />} />
+          <Route path='/al-wali-power-station/get-all-data' element={<CheckAlWaliData />} />
+          <Route path='/al-wali-power-station-details/:id' element={<GetSingleAlWaliData />} />
+          <Route path='/edit-al-wali-power-station-data/:id' element={<EditAlWali />} />
 
           {/* worker  */}
           <Route path='/workers' element={<Workers />} />

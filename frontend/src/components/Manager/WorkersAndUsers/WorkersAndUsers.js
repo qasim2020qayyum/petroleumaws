@@ -15,6 +15,11 @@ const AllPumpData = [
       name: "Workers",
       path: "/workers"
     },
+    {
+      id: 3,
+      name: "Generate Today's Record", //
+      path: "/today-data"
+    },
   ]
 const WorkersAndUsers = () => {
   return (
