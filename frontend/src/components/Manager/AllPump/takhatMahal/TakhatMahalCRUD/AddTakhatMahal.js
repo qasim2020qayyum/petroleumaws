@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
-const AddAlWali = () => {
+ 
+const AddTakhatMahal = () => {
     // get last reading 
     const [lastReadingSup1, setLastReadingSup1] = useState([]);
     const [lastReadingSup2, setLastReadingSup2] = useState([]);
-    const [lastReadingSup3, setLastReadingSup3] = useState([]);
-    const [lastReadingSup4, setLastReadingSup4] = useState([]);
 
     const [lastReadingHsd1, setLastReadingHsd1] = useState([]);
     const [lastReadingHsd2, setLastReadingHsd2] = useState([]);
@@ -20,8 +18,6 @@ const AddAlWali = () => {
 
     const [sup1_currentReading, setSup1CurrentReading] = useState('');
     const [sup2_currentReading, setSup2CurrentReading] = useState('');
-    const [sup3_currentReading, setSup3CurrentReading] = useState('');
-    const [sup4_currentReading, setSup4CurrentReading] = useState('');
 
     const [hsd1_currentReading, setHsd1CurrentReading] = useState('');
     const [hsd2_currentReading, setHsd2CurrentReading] = useState('');
@@ -39,9 +35,8 @@ const AddAlWali = () => {
     const [bankDeposit, setBankDeposit] = useState(0);
     const [psoPayment, setPsoPayment] = useState('');
     const [advanceSalary, setAdvanceSalary] = useState('');
-    const [creditPayment, setCreditPayment] = useState('');
-    const [miscPayment2, setMiscPayment2] = useState('');
-
+    const [creditPayment, setcreditPayment] = useState('');
+    const [miscPayment2, setmiscPayment2] = useState('');
     
     // recieving 
     const [creditWasoli, setCreditWasoli] = useState('');
@@ -54,34 +49,26 @@ const AddAlWali = () => {
 
     const [data, setData] = useState([]);
 
-    
-
 
     const [errorMsg, setErrorMsg] = useState(false);
     const navigate = useNavigate();
     const saveData = async (e) => {
         if (!sup1_currentReading ||
             !sup2_currentReading ||
-            !sup3_currentReading ||
-            !sup4_currentReading ||
-
-            !hsd1_currentReading || 
-            !hsd2_currentReading || 
-            !hsd3_currentReading || 
+            !hsd1_currentReading ||
+            !hsd2_currentReading ||
+            !hsd3_currentReading ||
             !hsd4_currentReading 
         ) {
             setErrorMsg(true)
             return false
         }
         e.preventDefault();
-        let pumpData = await fetch(`${process.env.REACT_APP_BACKEND_URL_KEY}/joiya/alwali/data/`,  {
+        let pumpData = await fetch(`${process.env.REACT_APP_BACKEND_URL_KEY}/joiya/takhatMahal/data/`, {
             method: 'POST',
             body: JSON.stringify({
                 sup1_currentReading: Number(sup1_currentReading),
                 sup2_currentReading: Number(sup2_currentReading),
-                sup3_currentReading: Number(sup3_currentReading),
-                sup4_currentReading: Number(sup4_currentReading),
-
                 hsd1_currentReading: Number(hsd1_currentReading),
                 hsd2_currentReading: Number(hsd2_currentReading),
                 hsd3_currentReading: Number(hsd3_currentReading),
@@ -106,6 +93,7 @@ const AddAlWali = () => {
                 advanceSalary: Number(advanceSalary),
                 creditPayment: Number(creditPayment),
                 miscPayment2: Number(miscPayment2),
+                
 
                 // expense
                 miscPayment: Number(miscPayment),
@@ -117,70 +105,59 @@ const AddAlWali = () => {
         })
         pumpData = await pumpData.json();
         setData(pumpData);
-        navigate('/al-wali-power-station/get-all-data')
+        navigate('/id-takhat-mahal/get-all-data')
         toast.success("Data added👌");
     }
 
 
 
     const [petrolRate, setPetrolRate] = useState([]);
-
     const petrol = async () => {
-      let res = await fetch(`${process.env.REACT_APP_BACKEND_URL_KEY}/joiya/rate/alwali/`)
-      res = await res.json();
-      setSupPurchaseRate(res[res.length - 1].sup_purchase_rate)
-      setSupSaleRate(res[res.length - 1].sup_sale_rate)
-      setHsdPurchaseRate(res[res.length - 1].hsd_purchase_rate)
-      setHsdSaleRate(res[res.length - 1].hsd_sale_rate)
-      setPetrolRate(res)
-    }
+        let res = await fetch(`${process.env.REACT_APP_BACKEND_URL_KEY}/joiya/rate/takhatMahal/`)
+        res = await res.json();
+        setSupPurchaseRate(res[res.length - 1].sup_purchase_rate)
+        setSupSaleRate(res[res.length - 1].sup_sale_rate)
+        setHsdPurchaseRate(res[res.length - 1].hsd_purchase_rate)
+        setHsdSaleRate(res[res.length - 1].hsd_sale_rate)
+        setPetrolRate(res)
+      }
+
+
     // get last reading 
     const userData = async () => {
-        let res = await fetch(`${process.env.REACT_APP_BACKEND_URL_KEY}/joiya/alwali/data`)
+        let res = await fetch(`${process.env.REACT_APP_BACKEND_URL_KEY}/joiya/takhatMahal/data`)
         res = await res.json();
         setLastReadingSup1(res[res.length - 1].sup1_currentReading)
         setLastReadingSup2(res[res.length - 1].sup2_currentReading)
-        setLastReadingSup3(res[res.length - 1].sup3_currentReading)
-        setLastReadingSup4(res[res.length - 1].sup4_currentReading)
         setLastReadingHsd1(res[res.length - 1].hsd1_currentReading)
         setLastReadingHsd2(res[res.length - 1].hsd2_currentReading)
         setLastReadingHsd3(res[res.length - 1].hsd3_currentReading)
         setLastReadingHsd4(res[res.length - 1].hsd4_currentReading)
     }
-
-
-
-
-    // difference 
     const [sup1_difference, setSup1difference] = useState('');
     const [sup2_difference, setSup2difference] = useState('');
-    const [sup3_difference, setSup3difference] = useState('');
-    const [sup4_difference, setSup4difference] = useState('');
     const [hsd1_difference, setHsd1difference] = useState('');
     const [hsd2_difference, setHsd2difference] = useState('');
     const [hsd3_difference, setHsd3difference] = useState('');
     const [hsd4_difference, setHsd4difference] = useState('');
-
     useEffect(() => {
         setSup1difference(sup1_currentReading-lastReadingSup1)
         setSup2difference(sup2_currentReading-lastReadingSup2)
-        setSup3difference(sup3_currentReading-lastReadingSup3)
-        setSup4difference(sup4_currentReading-lastReadingSup4)
         setHsd1difference(hsd1_currentReading-lastReadingHsd1)
         setHsd2difference(hsd2_currentReading-lastReadingHsd2)
         setHsd3difference(hsd3_currentReading-lastReadingHsd3)
         setHsd4difference(hsd4_currentReading-lastReadingHsd4)
         userData()
-        petrol()
-    }, [sup1_currentReading,sup2_currentReading,sup3_currentReading,sup4_currentReading,hsd1_currentReading,hsd2_currentReading,hsd3_currentReading,hsd4_currentReading])
+        petrol() 
+    }, [sup1_currentReading,sup2_currentReading,hsd1_currentReading,hsd2_currentReading,hsd3_currentReading,hsd4_currentReading])
 
 
 
     return (
-        <> 
+        <>
             <div className="form-container card border-0 shadow rounded-3 my-5 p-5">
-                <h1 className="mb-5">Al Wali Power Staion</h1>
-                <hr />
+                <h1 className="mb-5">ID Takhat Mahal</h1>
+                
                 <form>
                     
                     {/* sup 1 */}
@@ -198,7 +175,6 @@ const AddAlWali = () => {
                             {errorMsg && !sup1_currentReading && <span className="errorHandle">Please enter sup1 before submit</span>}
                         </div>
                     </div>
-
                     {/* sup 2 */}
                     <div className="form-row">
                         <div className="form-group">
@@ -214,38 +190,6 @@ const AddAlWali = () => {
                             {errorMsg && !sup2_currentReading && <span className="errorHandle">Please enter sup2 before submit</span>}
                         </div>
                     </div>
-                    {/* sup 3 */}
-
-                    <div className="form-row">
-                        <div className="form-group">
-                            <h3 style={{ marginTop: "3rem" }}>SUP3 <span className="text-danger"> Difference: {sup3_difference}</span></h3>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="name">Last Reading</label>
-                            <input type="number" id="name" name="name" required value={lastReadingSup3} disabled />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="name">Current Reading</label>
-                            <input type="number" id="name" name="name" required onChange={(e) => setSup3CurrentReading(e.target.value)} />
-                            {errorMsg && !sup3_currentReading && <span className="errorHandle">Please enter sup3 before submit</span>}
-                        </div>
-                    </div>
-                    {/* sup 4 */}
-                    <div className="form-row">
-                        <div className="form-group">
-                            <h3 style={{ marginTop: "3rem" }}>SUP4 <span className="text-danger"> Difference: {sup4_difference}</span></h3>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="name">Last Reading</label>
-                            <input type="number" id="name" name="name" required value={lastReadingSup4} disabled />
-
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="name">Current Reading</label>
-                            <input type="number" id="name" name="name" required onChange={(e) => setSup4CurrentReading(e.target.value)} />
-                            {errorMsg && !sup4_currentReading && <span className="errorHandle">Please enter sup4 before submit</span>}
-                        </div>
-                    </div> 
                     {/* HSD 1 */}
                     <div className="form-row">
                         <div className="form-group">
@@ -289,10 +233,10 @@ const AddAlWali = () => {
                         <div className="form-group">
                             <label htmlFor="name">Current Reading</label>
                             <input type="number" id="name" name="name" required onChange={(e) => setHsd3CurrentReading(e.target.value)} />
-                            {errorMsg && !hsd3_currentReading && <span className="errorHandle">Please enter HSD3 before submit</span>}
+                            {errorMsg && !hsd3_currentReading && <span className="errorHandle">Please enter HSD4 before submit</span>}
                         </div>
                     </div>
-                    {/* HSD 2 */}
+                    {/* HSD 4 */}
                     <div className="form-row">
                         <div className="form-group">
                             <h3 style={{ marginTop: "3rem" }}>HSD4 <span className="text-danger"> Difference: {hsd4_difference}</span></h3>
@@ -307,7 +251,6 @@ const AddAlWali = () => {
                             {errorMsg && !hsd4_currentReading && <span className="errorHandle">Please enter HSD4 before submit</span>}
                         </div>
                     </div>
-
 
 
                     <div className="form-row">
@@ -329,6 +272,8 @@ const AddAlWali = () => {
                         </div>
                     </div>
 
+
+                    
 
 
                     <div className="form-row">
@@ -355,19 +300,17 @@ const AddAlWali = () => {
                         </div>
                         <div className="form-group">
                             <label htmlFor="name">Credit Payment</label>
-                            <input type="number"  required onChange={(e) => setCreditPayment(e.target.value)} />
+                            <input type="number"  required onChange={(e) => setcreditPayment(e.target.value)} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="name">Misc Payment</label>
-                            <input type="number"  required onChange={(e) => setMiscPayment2(e.target.value)} />
+                            <label htmlFor="name"> Misc Payment</label>
+                            <input type="number"  required onChange={(e) => setmiscPayment2(e.target.value)} />
                         </div>
                         
                     </div>
 
 
-                   
-
-
+                
 
                     <div className="form-row">
                         <div className="form-group">
@@ -392,4 +335,4 @@ const AddAlWali = () => {
     )
 }
 
-export default AddAlWali
+export default AddTakhatMahal

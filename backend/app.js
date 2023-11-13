@@ -29,6 +29,7 @@ app.use("/joiya/alSiddique", require("./router/alSiddiqueRouter"))
 app.use("/joiya/nadirFillingStations", require("./router/nadirFillingStationsRouter"))
 app.use("/joiya/siaaFillingStation", require("./router/siaaFillingStationRouter"))
 app.use("/joiya/alwali", require("./router/alWaliRouter"))
+app.use("/joiya/takhatMahal", require("./router/takhatMahalRouter"))
 
 // rate router 
 app.use("/joiya/rate/pump", require("./router/RateRouter/rateRouterAliPetrolium"))
@@ -45,6 +46,7 @@ app.use("/joiya/rate/alSiddique", require("./router/RateRouter/rateRouterAlSiddi
 app.use("/joiya/rate/nadirFillingStations", require("./router/RateRouter/rateRouterNadirFillingStations"))
 app.use("/joiya/rate/siaaFillingStation", require("./router/RateRouter/rateRouterSiaaFillingStation"))
 app.use("/joiya/rate/alwali", require("./router/RateRouter/rateRouterAlWali"))
+app.use("/joiya/rate/takhatMahal", require("./router/RateRouter/rateRouterTakhatMahal"))
 
 // worker router 
 app.use("/joiya/worker", require("./router/workerRouter"))

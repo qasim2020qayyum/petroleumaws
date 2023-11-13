@@ -29,6 +29,12 @@ const AllPump = () => {
           className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
           Bhatti Petrolium
         </div></Link>
+
+        <Link to="/id-takhat-mahal"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
+          ID Takhat Mahal
+        </div></Link>
       </div>
       {/* end  */}
       <hr/>

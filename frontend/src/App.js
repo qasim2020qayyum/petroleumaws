@@ -113,6 +113,12 @@ import CheckAddAlWali from "./components/Manager/AllPump/AlWali/AlWaliCRUD/Check
 import CheckAlWaliData from "./components/Manager/AllPump/AlWali/AlWaliCRUD/CheckAlWaliData";
 import GetSingleAlWaliData from "./components/Manager/AllPump/AlWali/AlWaliCRUD/GetSingleAlWaliData";
 import EditAlWali from "./components/Manager/AllPump/AlWali/AlWaliCRUD/EditAlWali";
+import EditTakhatMahal from "./components/Manager/AllPump/takhatMahal/TakhatMahalCRUD/EditTakhatMahal";
+import GetSingleTakhatMahalData from "./components/Manager/AllPump/takhatMahal/TakhatMahalCRUD/GetSingleTakhatMahalData";
+import CheckTakhatMahalData from "./components/Manager/AllPump/takhatMahal/TakhatMahalCRUD/CheckTakhatMahalData";
+import CheckAddTakhatMahal from "./components/Manager/AllPump/takhatMahal/TakhatMahalCRUD/CheckAddTakhatMahal";
+import CheckTakhatMahalRates from "./components/PetrolAndDeiselRate/TakhatMahalRates/CheckTakhatMahalRates";
+import UpdateTakhatMahalRates from "./components/PetrolAndDeiselRate/TakhatMahalRates/UpdateTakhatMahalRates";
 function App() {
   return (
     <div>
@@ -205,6 +211,16 @@ function App() {
           <Route path='/id-filling-station/get-all-data' element={<CheckIDFillingStationData />} />
           <Route path='/id-filling-station-details/:id' element={<GetSingleIDFillingStationData />} />
           <Route path='/edit-id-filling-station-data/:id' element={<EditIDFillingStation />} />
+         
+          {/* Id Takhat Mahal*/}
+
+          <Route path='/id-takhat-mahal' element={<CheckTakhatMahalRates />} />
+          <Route path='/edit-id-takhat-mahal-rates/:id' element={<UpdateTakhatMahalRates />} />
+
+          <Route path='/id-takhat-mahal/add-todays-data' element={<CheckAddTakhatMahal />} />
+          <Route path='/id-takhat-mahal/get-all-data' element={<CheckTakhatMahalData />} />
+          <Route path='/id-takhat-mahal-details/:id' element={<GetSingleTakhatMahalData />} />
+          <Route path='/edit-id-takhat-mahal-data/:id' element={<EditTakhatMahal />} />
 
           {/* Jahangir petrolium service*/}
           <Route path='/jahangir-petrolium-service' element={<CheckJahangirPetroliumServiceRates/>} />
