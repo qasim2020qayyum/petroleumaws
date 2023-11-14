@@ -20,7 +20,10 @@ const TodayData = () => {
     const [alWaliTodayData, setAlWaliTodayData] = useState([]);
     const [takhatMahalTodayData, setTakhatMahalTodayData] = useState([]);
     const [siaaStationTodayData, setSiaaStationTodayData] = useState([]);
-
+    
+    
+    const [loading, setLoading] = useState(true);
+    
 
     const getCurrDate = ()=>{
         const date = new Date();
@@ -185,6 +188,7 @@ const TodayData = () => {
         if(res){
             let todayData = res.find(item => item.createdDate === currentDate); 
             setSiaaStationTodayData(todayData || 0);
+            setLoading(false)
         }
     };
 
@@ -193,21 +197,23 @@ const TodayData = () => {
 
 
     useEffect(() => {
-        aliPetroleum()
-        awanBrother()
-        babafareed()
-        bhattiPetrolium()
-        go09()
-        go45()
-        idFillingStation()
-        jahangirPetrolium()
-        khalidAndSon()
-        nadirFillingStations()
-        noorPetrolium()
-        alSiddique()
-        alWali()
-        takhatMahal()
-        siaaStation()
+        if(loading){
+            aliPetroleum()
+            awanBrother()
+            babafareed()
+            bhattiPetrolium()
+            go09()
+            go45()
+            idFillingStation()
+            jahangirPetrolium()
+            khalidAndSon()
+            nadirFillingStations()
+            noorPetrolium()
+            alSiddique()
+            alWali()
+            takhatMahal()
+            siaaStation()
+        }
     }, [])
 
 
@@ -247,189 +253,206 @@ const TodayData = () => {
                                     <th>Closing</th>
                                 </tr>
                             </thead> 
-                            <tbody>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Ali Petroleum</td>
-                                    <td>{aliPetroliumTodayData? aliPetroliumTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{aliPetroliumTodayData? aliPetroliumTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{aliPetroliumTodayData? aliPetroliumTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{aliPetroliumTodayData? aliPetroliumTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{aliPetroliumTodayData? aliPetroliumTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{aliPetroliumTodayData? aliPetroliumTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{aliPetroliumTodayData? aliPetroliumTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{aliPetroliumTodayData? aliPetroliumTodayData.closing.toFixed(0): 0}</td>   
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Awan Brother</td>
-                                    <td>{awanBrotherTodayData? awanBrotherTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{awanBrotherTodayData? awanBrotherTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{awanBrotherTodayData? awanBrotherTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{awanBrotherTodayData? awanBrotherTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{awanBrotherTodayData? awanBrotherTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{awanBrotherTodayData? awanBrotherTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{awanBrotherTodayData? awanBrotherTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{awanBrotherTodayData? awanBrotherTodayData.closing.toFixed(0): 0}</td>   
-                                </tr>
-                                <tr>
-                                    <td>03</td>
-                                    <td>Baba Fareed</td>
-                                    <td>{babaFareedTodayData? babaFareedTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{babaFareedTodayData? babaFareedTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{babaFareedTodayData? babaFareedTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{babaFareedTodayData? babaFareedTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{babaFareedTodayData? babaFareedTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{babaFareedTodayData? babaFareedTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{babaFareedTodayData? babaFareedTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{babaFareedTodayData? babaFareedTodayData.closing.toFixed(0): 0}</td>  
-                                </tr>
-                                <tr>
-                                    <td>04</td>
-                                    <td>Bhatti Petroleum</td>
-                                    <td>{bhattiPetroliumTodayData? bhattiPetroliumTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{bhattiPetroliumTodayData? bhattiPetroliumTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{bhattiPetroliumTodayData? bhattiPetroliumTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{bhattiPetroliumTodayData? bhattiPetroliumTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{bhattiPetroliumTodayData? bhattiPetroliumTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{bhattiPetroliumTodayData? bhattiPetroliumTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{bhattiPetroliumTodayData? bhattiPetroliumTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{bhattiPetroliumTodayData? bhattiPetroliumTodayData.closing.toFixed(0): 0}</td>  
-                                </tr>
-                                <tr>
-                                    <td>05</td>
-                                    <td>Go 09</td>
-                                    <td>{go09TodayData? go09TodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{go09TodayData? go09TodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{go09TodayData? go09TodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{go09TodayData? go09TodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{go09TodayData? go09TodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{go09TodayData? go09TodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{go09TodayData? go09TodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{go09TodayData? go09TodayData.closing.toFixed(0): 0}</td>  
-                                </tr>
-                                <tr>
-                                    <td>06</td>
-                                    <td>Go 45</td>
-                                    <td>{go45TodayData? go45TodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{go45TodayData? go45TodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{go45TodayData? go45TodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{go45TodayData? go45TodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{go45TodayData? go45TodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{go45TodayData? go45TodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{go45TodayData? go45TodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{go45TodayData? go45TodayData.closing.toFixed(0): 0}</td> 
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>ID Filling</td>
-                                    <td>{idFillingStationTodayData? idFillingStationTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{idFillingStationTodayData? idFillingStationTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{idFillingStationTodayData? idFillingStationTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{idFillingStationTodayData? idFillingStationTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{idFillingStationTodayData? idFillingStationTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{idFillingStationTodayData? idFillingStationTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{idFillingStationTodayData? idFillingStationTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{idFillingStationTodayData? idFillingStationTodayData.closing.toFixed(0): 0}</td> 
-                                </tr>
-                                <tr>
-                                    <td>08</td>
-                                    <td>Jahangir Petroleum</td>
-                                    <td>{jahangirPetroliumTodayData? jahangirPetroliumTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{jahangirPetroliumTodayData? jahangirPetroliumTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{jahangirPetroliumTodayData? jahangirPetroliumTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{jahangirPetroliumTodayData? jahangirPetroliumTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{jahangirPetroliumTodayData? jahangirPetroliumTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{jahangirPetroliumTodayData? jahangirPetroliumTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{jahangirPetroliumTodayData? jahangirPetroliumTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{jahangirPetroliumTodayData? jahangirPetroliumTodayData.closing.toFixed(0): 0}</td> 
-                                </tr>
-                                <tr>
-                                    <td>09</td>
-                                    <td>Khalid & Sons</td>
-                                    <td>{khalidAndSonTodayData? khalidAndSonTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{khalidAndSonTodayData? khalidAndSonTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{khalidAndSonTodayData? khalidAndSonTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{khalidAndSonTodayData? khalidAndSonTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{khalidAndSonTodayData? khalidAndSonTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{khalidAndSonTodayData? khalidAndSonTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{khalidAndSonTodayData? khalidAndSonTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{khalidAndSonTodayData? khalidAndSonTodayData.closing.toFixed(0): 0}</td> 
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>Nadir Filling</td>
-                                    <td>{nadirFillingStationsTodayData? nadirFillingStationsTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{nadirFillingStationsTodayData? nadirFillingStationsTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{nadirFillingStationsTodayData? nadirFillingStationsTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{nadirFillingStationsTodayData? nadirFillingStationsTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{nadirFillingStationsTodayData? nadirFillingStationsTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{nadirFillingStationsTodayData? nadirFillingStationsTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{nadirFillingStationsTodayData? nadirFillingStationsTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{nadirFillingStationsTodayData? nadirFillingStationsTodayData.closing.toFixed(0): 0}</td> 
-                                </tr>
-                                <tr>
-                                    <td>11</td>
-                                    <td>Noor Petroleum</td>
-                                    <td>{noorPetroliumTodayData? noorPetroliumTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{noorPetroliumTodayData? noorPetroliumTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{noorPetroliumTodayData? noorPetroliumTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{noorPetroliumTodayData? noorPetroliumTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{noorPetroliumTodayData? noorPetroliumTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{noorPetroliumTodayData? noorPetroliumTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{noorPetroliumTodayData? noorPetroliumTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{noorPetroliumTodayData? noorPetroliumTodayData.closing.toFixed(0): 0}</td> 
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>Al Siddique</td>
-                                    <td>{alSiddiqueTodayData? alSiddiqueTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{alSiddiqueTodayData? alSiddiqueTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{alSiddiqueTodayData? alSiddiqueTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{alSiddiqueTodayData? alSiddiqueTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{alSiddiqueTodayData? alSiddiqueTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{alSiddiqueTodayData? alSiddiqueTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{alSiddiqueTodayData? alSiddiqueTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{alSiddiqueTodayData? alSiddiqueTodayData.closing.toFixed(0): 0}</td> 
-                                </tr>
-                                <tr>
-                                    <td>13</td>
-                                    <td>Al Wali Power</td>
-                                    <td>{alWaliTodayData? alWaliTodayData.supSaleAmount.toFixed(0):  0}</td>
-                                    <td>{alWaliTodayData? alWaliTodayData.hsdSaleAmount.toFixed(0): 0}</td>
-                                    <td>{alWaliTodayData? alWaliTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{alWaliTodayData? alWaliTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{alWaliTodayData? alWaliTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{alWaliTodayData? alWaliTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{alWaliTodayData? alWaliTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{alWaliTodayData? alWaliTodayData.closing.toFixed(0): 0}</td> 
-                                </tr>
-                            
-                                <tr>
-                                    <td>14</td>
-                                    <td>ID Takhat Mahal</td>
-                                    <td>{takhatMahalTodayData ? takhatMahalTodayData.supSaleAmount.toFixed(0) : 0}</td>
-                                    <td>{takhatMahalTodayData ? takhatMahalTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
-                                    <td>{takhatMahalTodayData ? takhatMahalTodayData.totalSaleAmount.toFixed(0) : 0}</td>
-                                    <td>{takhatMahalTodayData ? takhatMahalTodayData.totalProfit.toFixed(0) : 0}</td>
-                                    <td>{takhatMahalTodayData ? takhatMahalTodayData.totalExpense.toFixed(0) : 0}</td>
-                                    <td>{takhatMahalTodayData ? takhatMahalTodayData.netProfit.toFixed(0) : 0}</td>
-                                    <td>{takhatMahalTodayData ? takhatMahalTodayData.bankDeposit.toFixed(0) : 0}</td>
-                                    <td>{takhatMahalTodayData ? takhatMahalTodayData.closing.toFixed(0) : 0}</td> 
-                                </tr>
+                            {loading? (<p>Loading...</p>
+                            ): (
+                                <tbody>
+                            <tr>
+    <td>01</td>
+    <td>Ali Petroleum</td>
+    <td>{aliPetroliumTodayData?.supSaleAmount !== undefined ? aliPetroliumTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{aliPetroliumTodayData?.hsdSaleAmount !== undefined ? aliPetroliumTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{aliPetroliumTodayData?.totalSaleAmount !== undefined ? aliPetroliumTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{aliPetroliumTodayData?.totalProfit !== undefined ? aliPetroliumTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{aliPetroliumTodayData?.totalExpense !== undefined ? aliPetroliumTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{aliPetroliumTodayData?.netProfit !== undefined ? aliPetroliumTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{aliPetroliumTodayData?.bankDeposit !== undefined ? aliPetroliumTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{aliPetroliumTodayData?.closing !== undefined ? aliPetroliumTodayData.closing.toFixed(0) : 0}</td>  
+</tr>
 
                                 <tr>
-                                    <td>15</td>
-                                    <td>Siaa Filling</td>
-                                    <td>{siaaStationTodayData? siaaStationTodayData.supSaleAmount.toFixed(0): 0}</td>
-                                    <td>0</td>
-                                    <td>{siaaStationTodayData? siaaStationTodayData.totalSaleAmount.toFixed(0): 0}</td>
-                                    <td>{siaaStationTodayData? siaaStationTodayData.totalProfit.toFixed(0): 0}</td>
-                                    <td>{siaaStationTodayData? siaaStationTodayData.totalExpense.toFixed(0): 0}</td>
-                                    <td>{siaaStationTodayData? siaaStationTodayData.netProfit.toFixed(0): 0}</td>
-                                    <td>{siaaStationTodayData? siaaStationTodayData.bankDeposit.toFixed(0): 0}</td>
-                                    <td>{siaaStationTodayData? siaaStationTodayData.closing.toFixed(0): 0}</td>   
-                                </tr>
+    <td>02</td>
+    <td>Awan Brother</td>
+    <td>{awanBrotherTodayData?.supSaleAmount !== undefined ? awanBrotherTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{awanBrotherTodayData?.hsdSaleAmount !== undefined ? awanBrotherTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{awanBrotherTodayData?.totalSaleAmount !== undefined ? awanBrotherTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{awanBrotherTodayData?.totalProfit !== undefined ? awanBrotherTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{awanBrotherTodayData?.totalExpense !== undefined ? awanBrotherTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{awanBrotherTodayData?.netProfit !== undefined ? awanBrotherTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{awanBrotherTodayData?.bankDeposit !== undefined ? awanBrotherTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{awanBrotherTodayData?.closing !== undefined ? awanBrotherTodayData.closing.toFixed(0) : 0}</td>  
+</tr>
+
+                                <tr>
+    <td>03</td>
+    <td>Baba Fareed</td>
+    <td>{babaFareedTodayData?.supSaleAmount !== undefined ? babaFareedTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{babaFareedTodayData?.hsdSaleAmount !== undefined ? babaFareedTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{babaFareedTodayData?.totalSaleAmount !== undefined ? babaFareedTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{babaFareedTodayData?.totalProfit !== undefined ? babaFareedTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{babaFareedTodayData?.totalExpense !== undefined ? babaFareedTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{babaFareedTodayData?.netProfit !== undefined ? babaFareedTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{babaFareedTodayData?.bankDeposit !== undefined ? babaFareedTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{babaFareedTodayData?.closing !== undefined ? babaFareedTodayData.closing.toFixed(0) : 0}</td>  
+</tr>
+
+                                <tr>
+    <td>04</td>
+    <td>Bhatti Petroleum</td>
+    <td>{bhattiPetroliumTodayData?.supSaleAmount !== undefined ? bhattiPetroliumTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{bhattiPetroliumTodayData?.hsdSaleAmount !== undefined ? bhattiPetroliumTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{bhattiPetroliumTodayData?.totalSaleAmount !== undefined ? bhattiPetroliumTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{bhattiPetroliumTodayData?.totalProfit !== undefined ? bhattiPetroliumTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{bhattiPetroliumTodayData?.totalExpense !== undefined ? bhattiPetroliumTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{bhattiPetroliumTodayData?.netProfit !== undefined ? bhattiPetroliumTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{bhattiPetroliumTodayData?.bankDeposit !== undefined ? bhattiPetroliumTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{bhattiPetroliumTodayData?.closing !== undefined ? bhattiPetroliumTodayData.closing.toFixed(0) : 0}</td>  
+</tr>
+
+                                <tr>
+    <td>05</td>
+    <td>Go 09</td>
+    <td>{go09TodayData?.supSaleAmount !== undefined ? go09TodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{go09TodayData?.hsdSaleAmount !== undefined ? go09TodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{go09TodayData?.totalSaleAmount !== undefined ? go09TodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{go09TodayData?.totalProfit !== undefined ? go09TodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{go09TodayData?.totalExpense !== undefined ? go09TodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{go09TodayData?.netProfit !== undefined ? go09TodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{go09TodayData?.bankDeposit !== undefined ? go09TodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{go09TodayData?.closing !== undefined ? go09TodayData.closing.toFixed(0) : 0}</td>  
+</tr>
+
+                                <tr>
+    <td>06</td>
+    <td>Go 45</td>
+    <td>{go45TodayData?.supSaleAmount !== undefined ? go45TodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{go45TodayData?.hsdSaleAmount !== undefined ? go45TodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{go45TodayData?.totalSaleAmount !== undefined ? go45TodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{go45TodayData?.totalProfit !== undefined ? go45TodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{go45TodayData?.totalExpense !== undefined ? go45TodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{go45TodayData?.netProfit !== undefined ? go45TodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{go45TodayData?.bankDeposit !== undefined ? go45TodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{go45TodayData?.closing !== undefined ? go45TodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+                                <tr>
+    <td>07</td>
+    <td>ID Filling</td>
+    <td>{idFillingStationTodayData?.supSaleAmount !== undefined ? idFillingStationTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{idFillingStationTodayData?.hsdSaleAmount !== undefined ? idFillingStationTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{idFillingStationTodayData?.totalSaleAmount !== undefined ? idFillingStationTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{idFillingStationTodayData?.totalProfit !== undefined ? idFillingStationTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{idFillingStationTodayData?.totalExpense !== undefined ? idFillingStationTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{idFillingStationTodayData?.netProfit !== undefined ? idFillingStationTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{idFillingStationTodayData?.bankDeposit !== undefined ? idFillingStationTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{idFillingStationTodayData?.closing !== undefined ? idFillingStationTodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+                                <tr>
+    <td>08</td>
+    <td>Jahangir Petroleum</td>
+    <td>{jahangirPetroliumTodayData?.supSaleAmount !== undefined ? jahangirPetroliumTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{jahangirPetroliumTodayData?.hsdSaleAmount !== undefined ? jahangirPetroliumTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{jahangirPetroliumTodayData?.totalSaleAmount !== undefined ? jahangirPetroliumTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{jahangirPetroliumTodayData?.totalProfit !== undefined ? jahangirPetroliumTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{jahangirPetroliumTodayData?.totalExpense !== undefined ? jahangirPetroliumTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{jahangirPetroliumTodayData?.netProfit !== undefined ? jahangirPetroliumTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{jahangirPetroliumTodayData?.bankDeposit !== undefined ? jahangirPetroliumTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{jahangirPetroliumTodayData?.closing !== undefined ? jahangirPetroliumTodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+                                <tr>
+    <td>09</td>
+    <td>Khalid & Sons</td>
+    <td>{khalidAndSonTodayData?.supSaleAmount !== undefined ? khalidAndSonTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{khalidAndSonTodayData?.hsdSaleAmount !== undefined ? khalidAndSonTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{khalidAndSonTodayData?.totalSaleAmount !== undefined ? khalidAndSonTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{khalidAndSonTodayData?.totalProfit !== undefined ? khalidAndSonTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{khalidAndSonTodayData?.totalExpense !== undefined ? khalidAndSonTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{khalidAndSonTodayData?.netProfit !== undefined ? khalidAndSonTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{khalidAndSonTodayData?.bankDeposit !== undefined ? khalidAndSonTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{khalidAndSonTodayData?.closing !== undefined ? khalidAndSonTodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+                                <tr>
+    <td>10</td>
+    <td>Nadir Filling</td>
+    <td>{nadirFillingStationsTodayData?.supSaleAmount !== undefined ? nadirFillingStationsTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{nadirFillingStationsTodayData?.hsdSaleAmount !== undefined ? nadirFillingStationsTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{nadirFillingStationsTodayData?.totalSaleAmount !== undefined ? nadirFillingStationsTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{nadirFillingStationsTodayData?.totalProfit !== undefined ? nadirFillingStationsTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{nadirFillingStationsTodayData?.totalExpense !== undefined ? nadirFillingStationsTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{nadirFillingStationsTodayData?.netProfit !== undefined ? nadirFillingStationsTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{nadirFillingStationsTodayData?.bankDeposit !== undefined ? nadirFillingStationsTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{nadirFillingStationsTodayData?.closing !== undefined ? nadirFillingStationsTodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+                                <tr>
+    <td>11</td>
+    <td>Noor Petroleum</td>
+    <td>{noorPetroliumTodayData?.supSaleAmount !== undefined ? noorPetroliumTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{noorPetroliumTodayData?.hsdSaleAmount !== undefined ? noorPetroliumTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{noorPetroliumTodayData?.totalSaleAmount !== undefined ? noorPetroliumTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{noorPetroliumTodayData?.totalProfit !== undefined ? noorPetroliumTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{noorPetroliumTodayData?.totalExpense !== undefined ? noorPetroliumTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{noorPetroliumTodayData?.netProfit !== undefined ? noorPetroliumTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{noorPetroliumTodayData?.bankDeposit !== undefined ? noorPetroliumTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{noorPetroliumTodayData?.closing !== undefined ? noorPetroliumTodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+                                <tr>
+    <td>12</td>
+    <td>Al Siddique</td>
+    <td>{alSiddiqueTodayData?.supSaleAmount !== undefined ? alSiddiqueTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{alSiddiqueTodayData?.hsdSaleAmount !== undefined ? alSiddiqueTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{alSiddiqueTodayData?.totalSaleAmount !== undefined ? alSiddiqueTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{alSiddiqueTodayData?.totalProfit !== undefined ? alSiddiqueTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{alSiddiqueTodayData?.totalExpense !== undefined ? alSiddiqueTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{alSiddiqueTodayData?.netProfit !== undefined ? alSiddiqueTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{alSiddiqueTodayData?.bankDeposit !== undefined ? alSiddiqueTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{alSiddiqueTodayData?.closing !== undefined ? alSiddiqueTodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+                                <tr>
+    <td>13</td>
+    <td>Al Wali Power</td>
+    <td>{alWaliTodayData?.supSaleAmount !== undefined ? alWaliTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{alWaliTodayData?.hsdSaleAmount !== undefined ? alWaliTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{alWaliTodayData?.totalSaleAmount !== undefined ? alWaliTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{alWaliTodayData?.totalProfit !== undefined ? alWaliTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{alWaliTodayData?.totalExpense !== undefined ? alWaliTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{alWaliTodayData?.netProfit !== undefined ? alWaliTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{alWaliTodayData?.bankDeposit !== undefined ? alWaliTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{alWaliTodayData?.closing !== undefined ? alWaliTodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+                            
+                                
+                                <tr>
+    <td>14</td>
+    <td>ID Takhat Mahal</td>
+    <td>{takhatMahalTodayData?.supSaleAmount !== undefined ? takhatMahalTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>{takhatMahalTodayData?.hsdSaleAmount !== undefined ? takhatMahalTodayData.hsdSaleAmount.toFixed(0) : 0}</td>
+    <td>{takhatMahalTodayData?.totalSaleAmount !== undefined ? takhatMahalTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{takhatMahalTodayData?.totalProfit !== undefined ? takhatMahalTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{takhatMahalTodayData?.totalExpense !== undefined ? takhatMahalTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{takhatMahalTodayData?.netProfit !== undefined ? takhatMahalTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{takhatMahalTodayData?.bankDeposit !== undefined ? takhatMahalTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{takhatMahalTodayData?.closing !== undefined ? takhatMahalTodayData.closing.toFixed(0) : 0}</td> 
+</tr>
+
+<tr>
+    <td>15</td>
+    <td>Siaa Filling</td>
+    <td>{siaaStationTodayData?.supSaleAmount !== undefined ? siaaStationTodayData.supSaleAmount.toFixed(0) : 0}</td>
+    <td>0</td>
+    <td>{siaaStationTodayData?.totalSaleAmount !== undefined ? siaaStationTodayData.totalSaleAmount.toFixed(0) : 0}</td>
+    <td>{siaaStationTodayData?.totalProfit !== undefined ? siaaStationTodayData.totalProfit.toFixed(0) : 0}</td>
+    <td>{siaaStationTodayData?.totalExpense !== undefined ? siaaStationTodayData.totalExpense.toFixed(0) : 0}</td>
+    <td>{siaaStationTodayData?.netProfit !== undefined ? siaaStationTodayData.netProfit.toFixed(0) : 0}</td>
+    <td>{siaaStationTodayData?.bankDeposit !== undefined ? siaaStationTodayData.bankDeposit.toFixed(0) : 0}</td>
+    <td>{siaaStationTodayData?.closing !== undefined ? siaaStationTodayData.closing.toFixed(0) : 0}</td>   
+</tr>
+
                                 <tr >
                                     <th></th>
                                     <th>TOTAL</th>
@@ -443,6 +466,9 @@ const TodayData = () => {
                                     <th>{((aliPetroliumTodayData? aliPetroliumTodayData.closing:  0) +  (awanBrotherTodayData? awanBrotherTodayData.closing:  0) +  (babaFareedTodayData? babaFareedTodayData.closing:  0) +  (bhattiPetroliumTodayData? bhattiPetroliumTodayData.closing:  0) + (go09TodayData? go09TodayData.closing:  0 )+ (go45TodayData? go45TodayData.closing:  0) + (idFillingStationTodayData? idFillingStationTodayData.closing:  0) + (jahangirPetroliumTodayData? jahangirPetroliumTodayData.closing:  0) + (khalidAndSonTodayData? khalidAndSonTodayData.closing:  0) + (nadirFillingStationsTodayData? nadirFillingStationsTodayData.closing:  0) + (noorPetroliumTodayData? noorPetroliumTodayData.closing:  0) + (alSiddiqueTodayData? alSiddiqueTodayData.closing:  0) + (alWaliTodayData? alWaliTodayData.closing:  0) + (takhatMahalTodayData? takhatMahalTodayData.closing:  0) + (siaaStationTodayData? siaaStationTodayData.closing:  0)).toFixed(0)}</th>
                                 </tr>
                             </tbody>
+                            )
+                        }
+                            
                         </table>
                     </div>
 

@@ -52,7 +52,7 @@ console.log(uData)
                     <>
                         <tr key={user._id}>
                             <th scope="row">{ind+1}</th>
-                            <td>Ali Petrolium</td>
+                            <td>Al Wali Power Station</td>
                             <td>{user.createdDate}</td>
                             <td><Link to={`/al-wali-power-station-details/${user._id}`} className='btn btn-success btn-sm me-2'>Check Details</Link> </td>
                             <td>
