@@ -11,14 +11,6 @@ const getUser = async(req, res)=>{
     }
 }
 
-
-// post 
-// const postUser = async(req, res)=>{
-//     let user = new User(req.body)
-//     let result = await user.save();
-//     res.send(result);  
-// }
-
 const postUser = async (req, res) => {
     const { name, email, phone, password } = req.body;
   

@@ -119,6 +119,12 @@ import CheckTakhatMahalData from "./components/Manager/AllPump/takhatMahal/Takha
 import CheckAddTakhatMahal from "./components/Manager/AllPump/takhatMahal/TakhatMahalCRUD/CheckAddTakhatMahal";
 import CheckTakhatMahalRates from "./components/PetrolAndDeiselRate/TakhatMahalRates/CheckTakhatMahalRates";
 import UpdateTakhatMahalRates from "./components/PetrolAndDeiselRate/TakhatMahalRates/UpdateTakhatMahalRates";
+import CheckDastgeerRates from "./components/PetrolAndDeiselRate/Dastgeer/CheckDastgeerRates";
+import UpdateDastgeerRates from "./components/PetrolAndDeiselRate/Dastgeer/UpdateDastgeerRates";
+import CheckAddDastgeer from "./components/Manager/AllPump/Dastgeer/DastgeerCrud/CheckAddDastgeer";
+import CheckDastgeerData from "./components/Manager/AllPump/Dastgeer/DastgeerCrud/CheckDastgeerData";
+import GetSingleDastgeerData from "./components/Manager/AllPump/Dastgeer/DastgeerCrud/GetSingleDastgeerData";
+import EditDastgeer from "./components/Manager/AllPump/Dastgeer/DastgeerCrud/EditDastgeer";
 function App() {
   return (
     <div>
@@ -184,6 +190,15 @@ function App() {
           <Route path='/bhatti-petrolium/get-all-data' element={<CheckBhattiPetroliumData />} />
           <Route path='/bhatti-petrolium-details/:id' element={<GetSingleBhattiPetroliumData />} />
           <Route path='/edit-bhatti-petrolium-data/:id' element={<EditBhattiPetrolium />} />
+
+          {/*Dastgeer Filling Station*/}
+          <Route path='/dastgeer-filling-station' element={<CheckDastgeerRates/>} />
+          <Route path='/edit-dastgeer-filling-station-rates/:id' element={<UpdateDastgeerRates />} />
+
+          <Route path='/dastgeer-filling-station/add-todays-data' element={<CheckAddDastgeer />} />
+          <Route path='/dastgeer-filling-station/get-all-data' element={<CheckDastgeerData />} />
+          <Route path='/dastgeer-filling-station-details/:id' element={<GetSingleDastgeerData />} />
+          <Route path='/edit-dastgeer-filling-station-data/:id' element={<EditDastgeer />} />
 
           {/* Go 09*/}
           <Route path='/go-09' element={<CheckGo09Rates/>} />

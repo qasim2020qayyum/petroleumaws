@@ -123,8 +123,6 @@ exports.addidFillingStationData = async (req, res) => {
       const pump = await newPumpData.save();
 
       res.send(pump);
-      console.log("Pump Data Successfully Added");
-      // }
 
     } catch (error) {
       res.status(500).send({
@@ -262,8 +260,6 @@ exports.addidFillingStationData = async (req, res) => {
       const pump = await newPumpData.save();
 
       res.send(pump);
-      console.log("Pump Data Successfully Added");
-      // }
 
     } catch (error) {
       res.status(500).send({
@@ -418,7 +414,6 @@ exports.updateidFillingStationData = async (req, res) => {
     const updatedPumpData = await pumpData.save();
 
     res.send(updatedPumpData);
-    console.log("Pump Data Successfully Updated");
   } catch (error) {
     res.status(500).send({
       message: "Some error occurred while updating the pump data.",

@@ -35,6 +35,11 @@ const AllPump = () => {
           className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  w-100 m-4 p-3 ">
           ID Takhat Mahal
         </div></Link>
+        <Link to="/dastgeer-filling-station"><div
+          style={{ backgroundColor: '#a83c27' }}
+          className="d-flex justify-content-center align-items-center fw-bold text-white rounded shadow-sm  m-4 p-3 ">
+          Dastgeer Filling Station
+        </div></Link>
       </div>
       {/* end  */}
       <hr/>
